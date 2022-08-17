@@ -37,8 +37,8 @@ echo Changing IDS
 
 
 REM Downloading Target Repo
-echo git clone --depth 1 git@bitbucket.org:DevAudicon/%target-repo%.git
-git clone --depth 1 git@bitbucket.org:DevAudicon/%target-repo%.git
+echo git clone --depth 1 --branch %branch-clone% git@bitbucket.org:DevAudicon/%target-repo%.git
+git clone --depth 1 --branch %branch-clone% git@bitbucket.org:DevAudicon/%target-repo%.git
 if exist %target-repo% (
     cd %target-repo%
     REM git checkout -b %branch-clone%
@@ -57,13 +57,13 @@ echo copying %source-repo%.1 to %replace-folder%
 cp -rf %replace-folder% ./%target-repo%/
 
 REM Push branch to TargeRepo
-if %push%== true (
+if [%push%] EQU [true] (
     echo pushing branch %branch-clone% to %target-repo%
     cd %target-repo% 
-    git add .
-    echo Transfering %branch-clone% from %source-repo% to %target-repo% .
-    git commit -m "Transfering %branch-clone% from %source-repo% to %target-repo% ."
-    git push origin %branch-clone% --no-verify
+    @REM git add .
+    @REM echo Transfering %branch-clone% from %source-repo% to %target-repo% .
+    @REM git commit -m "Transfering %branch-clone% from %source-repo% to %target-repo% ."
+    @REM git push origin %branch-clone% --no-verify
     cd ..
 ) else (
     echo Repo push == %push%
