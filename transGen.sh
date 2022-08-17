@@ -18,10 +18,10 @@ then
     exit 1
 fi
  
- sourceRepo=com.caseware.de.e.generic
- sourceRepo1=com.caseware.de.generic.1
- targetRepo=com.caseware.de.e.schuellermann.taxcms
- targetRepo1=com.caseware.de.e.schuellermann.taxcms.1
+ targetRepo=com.caseware.de.e.generic
+ targetRepo1=com.caseware.de.generic.1
+ sourceRepo=com.caseware.de.e.schuellermann.taxcms
+ sourceRepo1=com.caseware.de.e.schuellermann.taxcms.1
 
 echo $sourceRepo
 echo $targetRepo

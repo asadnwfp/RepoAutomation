@@ -3,8 +3,8 @@
 // the code will run on a folder, open any file named form.js
 // change the form id to the desired id.
 
-const NEW_ID = "com.caseware.de.e.schuellermann.taxcms.forms";
-const OLD_ID = "com.caseware.de.forms";
+const OLD_ID = "com.caseware.de.e.schuellermann.taxcms.forms";
+const NEW_ID = "com.caseware.de.forms";
 // const PROJECT_PATH = `C:\\dev\\cwi_gen\\transfer`;
 const PROJECT_PATH = __dirname;
 
