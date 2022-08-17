@@ -10,9 +10,10 @@ if [%push%] == [] (
     echo Provide wether to push the branch == true or false, and re-run the script.
     goto end
 )
-set source-repo=com.caseware.de.e.schuellermann.taxcms
-set target-repo=com.caseware.de.e.generic
-set replace-folder=com.caseware.de.generic.1
+REM set source-repo=com.caseware.de.e.schuellermann.taxcms
+set source-repo=com.caseware.de.e.generic
+set target-repo=com.caseware.de.e.schuellermann.taxcms
+set replace-folder=com.caseware.de.e.schuellermann.taxcms.1
 
 echo %source-repo%
 echo %target-repo%
@@ -40,7 +41,9 @@ echo git clone --depth 1 git@bitbucket.org:DevAudicon/%target-repo%.git
 git clone --depth 1 git@bitbucket.org:DevAudicon/%target-repo%.git
 if exist %target-repo% (
     cd %target-repo%
-    git checkout -b %branch-clone%
+    REM git checkout -b %branch-clone%
+    git fetch
+    git checkout %branch-clone%
     cd ..
 ) else (
     echo %target-repo% does not exist.
@@ -66,11 +69,11 @@ if %push%== true (
     echo Repo push == %push%
 )
 echo Removing %source-repo%
-rm -rf %replace-folder%
-rm -rfd %source-repo%
+REM rm -rf %replace-folder%
+REM rm -rfd %source-repo%
 
 echo Removing %target-repo%
-rm -rfd %target-repo%
+REM rm -rfd %target-repo%
 
 :end
 echo TransGen Completed.

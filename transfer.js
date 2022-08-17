@@ -3,9 +3,10 @@
 // the code will run on a folder, open any file named form.js
 // change the form id to the desired id.
 
-const OLD_ID = "com.caseware.de.e.schuellermann.taxcms.forms.assignedoverview";
+const OLD_ID = "com.caseware.de.e.schuellermann.taxcms.forms";
 const NEW_ID = "com.caseware.de.forms";
-const PROJECT_PATH = `C:\\dev\\cwi_gen\\transfer`;
+// const PROJECT_PATH = `C:\\dev\\cwi_gen\\transfer`;
+const PROJECT_PATH = __dirname;
 
 console.log(
   `%cOldId: ${OLD_ID} \nNewID: ${NEW_ID}\nProjectPath: ${PROJECT_PATH}`,
@@ -68,9 +69,9 @@ function isForm(filePath) {
       if (err) throw err;
       let ourForm = JSON.parse(data);
       id = ourForm.id.split(".forms");
-      console.log("id:", id);
-      console.log("id1:", id[1]);
-      console.log("NewId: ", NEW_ID + id[1]);
+      // console.log("id:", id);
+      // console.log("id1:", id[1]);
+      // console.log("NewId: ", NEW_ID + id[1]);
       ourForm.id = NEW_ID + id[1];
       console.log(ourForm);
       writeToForm(filePath, ourForm);
